@@ -1,0 +1,154 @@
+/*******************************************************************************
+    Layout
+*******************************************************************************/
+header {
+    min-height:         4cm;
+    position:           fixed;
+    background-color:   #4D4D4D;
+    -webkit-box-shadow: 0px -1cm 500px 10px rgba(0, 0, 0, 0.5);
+    box-shadow:         0px -1cm 500px 10px rgba(0, 0, 0, 0.5);
+    width: 100%;
+}
+
+#title {
+    vertical-align: middle;
+    padding-top:    0.2em;
+}
+
+div.content {
+    width:          940px;
+    margin:         0px auto;
+    padding-top:    4.5cm;
+}
+
+section, aside {
+    float: left;
+}
+
+section {
+    width: 700px;
+    padding-left: 0.5cm;
+}
+
+aside {
+    width: 200px;
+    padding-right: 0.5cm;
+    border-right: 1px dashed #999999;
+}
+
+footer {
+    width: 940px;
+    margin: 0px auto;
+    color: #999999;
+}
+
+/*******************************************************************************
+    Typography
+*******************************************************************************/
+* {
+    margin:         0px;
+    padding:        0px;
+    font-weight:    300;
+    font-size:      12pt;
+    color:          #4D4D4D;
+    line-height:    1.5em;
+}
+
+#title {
+    font-family:    'Lato', sans-serif;
+    font-size:      40pt;
+    text-align:     center;
+    line-height:    1em;
+}
+
+#title .firstName   { color: #FFFFFF;   font-size:  40pt;   font-weight: 100;}
+#title .lastName    {                   font-size:  40pt;   font-weight: 400;}
+#title .lastName    { -webkit-transition: color 0.5s ease-in-out;
+                      -moz-transition: color 0.5s ease-in-out;
+                      -ms-transition: color 0.5s ease-in-out;
+                      -o-transition: color 0.5s ease-in-out;
+                      transition: color 0.5s ease-in-out;                    }
+#title .subtitle    { color: #999999;   font-size:   14pt;  font-weight: 400;}
+
+section, aside {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+aside {
+    text-align: right;
+}
+
+section article h1, aside dt, section article h1 span {
+    font-size:      16pt;
+    font-weight:    500;
+}
+
+section article h1 {
+    margin:     1em 0em;
+}
+
+section article:first-child h1 {
+    margin-top:     0em;
+}
+
+p, td, aside dd {
+    font-size: 10pt;
+}
+
+footer {
+    text-align: right;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 10pt;
+    font-style: italic;
+}
+
+/*******************************************************************************
+    Tables
+*******************************************************************************/
+
+section table {
+    width: 100%;
+    padding: 0px;
+}
+
+section table th {
+    text-align: left;
+}
+
+section table td {
+    vertical-align: text-top;
+    text-align: left;
+    padding: 0.5em 0em;
+    border-top: 1px dashed #999999;
+}
+
+section table tr:first-child td {
+    border-top: 0px;
+}
+
+section table td.year {
+    width: 15%;
+    color: #999999;
+}
+
+section table td.desc {
+    width: 65%;
+}
+
+section table td.inst {
+    width: 20%;
+    color: #999999;
+}
+
+/*******************************************************************************
+    Colors
+*******************************************************************************/
+.white      { color: #FFFFFF; }
+.darkgrey   { color: #333333; }
+.gray       { color: #4D4D4D; }
+.lightgray  { color: #999999; }
+.green      { color: #C2E15F; }
+.orange     { color: #FDA333; }
+.purple     { color: #D3A4F9; }
+.red        { color: #FB4485; }
+.blue       { color: #6CE0F1; }
