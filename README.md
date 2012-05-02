@@ -9,6 +9,7 @@ The scripts cv2pdf.bat and cv2pdf.sh both requires [wkhtmltopdf](http://code.goo
 # Credits
 
 Adrien Friggeri: https://github.com/afriggeri/cv
+
 For design inspiration.
 
 # License #
