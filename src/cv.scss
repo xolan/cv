@@ -1,0 +1,205 @@
+/*******************************************************************************
+    Fonts
+*******************************************************************************/
+$fontprefix:    'Roboto';
+////////////////////////////////////////////////////////////////////////////////
+$fontsuffix:    'Black',
+                'BlackItalic',
+                'Bold',
+                'BoldCondensed',
+                'BoldCondensedItalic',
+                'BoldItalic',
+                'Condensed',
+                'CondensedItalic',
+                'Italic',
+                'Light',
+                'LightItalic',
+                'Medium',
+                'MediumItalic',
+                'Thin',
+                'ThinItalic',
+                'Regular';
+////////////////////////////////////////////////////////////////////////////////
+
+@each $font in $fontsuffix {
+    @font-face {
+        font-family: $fontprefix+$font;
+        src: url('../fonts/'+$fontprefix+'-'+$font+'-webfont.eot');
+        src: url('../fonts/'+$fontprefix+'-'+$font+'-webfont.eot?#iefix') format('embedded-opentype'),
+             url('../fonts/'+$fontprefix+'-'+$font+'-webfont.woff') format('woff'),
+             url('../fonts/'+$fontprefix+'-'+$font+'-webfont.ttf') format('truetype'),
+             url('../fonts/'+$fontprefix+'-'+$font+'-webfont.svg#'+$fontprefix+$font) format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+}
+
+$_f     : $fontprefix+'Regular';
+$_fbold : $fontprefix+'Bold';
+$_fital : $fontprefix+'Italic';
+$_fthin : $fontprefix+'Thin';
+
+/*******************************************************************************
+    Colors
+*******************************************************************************/
+$white      : #FFFFFF;
+$black      : #000000;
+$darkgray   : #333333;
+$gray       : #4D4D4D;
+$lightgray  : #999999;
+$green      : #C2E15F;
+$orange     : #FDA333;
+$purple     : #D3A4F9;
+$red        : #FB4485;
+$blue       : #6CE0F1;
+
+.white      { color: $white;    }
+.black      { color: $black;    }
+.darkgray   { color: $darkgray; }
+.gray       { color: $gray;     }
+.lightgray  { color: $lightgray;}
+.green      { color: $green;    }
+.orange     { color: $orange;   }
+.purple     { color: $purple;   }
+.red        { color: $red;      }
+.blue       { color: $blue;     }
+
+/*******************************************************************************
+    Layout
+*******************************************************************************/
+header {
+    min-height:         4cm;
+    position:           fixed;
+    background-color:   $gray;
+    -webkit-box-shadow: 0px -1cm 500px 10px rgba($black, 0.5);
+    box-shadow:         0px -1cm 500px 10px rgba($black, 0.5);
+    width: 100%;
+}
+
+#title {
+    vertical-align: middle;
+    padding-top:    0.2em;
+}
+
+div.content {
+    width:          940px;
+    margin:         0px auto;
+    padding-top:    4.5cm;
+}
+
+section, aside {
+    float: left;
+}
+
+section {
+    width: 700px;
+    padding-left: 0.5cm;
+}
+
+aside {
+    width: 200px;
+    padding-right: 0.5cm;
+    border-right: 1px dashed $lightgray;
+}
+
+footer {
+    width: 940px;
+    margin: 0px auto;
+    color: $lightgray;
+}
+
+/*******************************************************************************
+    Typography
+*******************************************************************************/
+* {
+    margin:         0px;
+    padding:        0px;
+    font-size:      12pt;
+    color:          $gray;
+    line-height:    1.5em;
+}
+
+#title {
+    font-family:    $_fbold, sans-serif;
+    font-size:      40pt;
+    text-align:     center;
+    line-height:    1em;
+}
+
+#title .firstName   { color: $white;   font-size:  40pt; font-family: $_fthin, sans-serif;}
+#title .lastName    {                   font-size:  40pt;                      }
+#title .lastName    { -webkit-transition: color 0.5s ease-in-out;
+                      -moz-transition: color 0.5s ease-in-out;
+                      -ms-transition: color 0.5s ease-in-out;
+                      -o-transition: color 0.5s ease-in-out;
+                      transition: color 0.5s ease-in-out;                      }
+#title .subtitle    { color: $lightgray;   font-size:   14pt;                     }
+
+section, aside {
+    font-family: $_f, sans-serif;
+}
+
+aside {
+    text-align: right;
+}
+
+section article h1, aside dt, section article h1 span {
+    font-size:      16pt;
+    font-family:    $_fbold;
+}
+
+section article h1 {
+    margin:     1em 0em;
+}
+
+section article:first-child h1 {
+    margin-top:     0em;
+}
+
+p, td, aside dd {
+    font-size: 10pt;
+}
+
+footer {
+    text-align: right;
+    font-family: $_fital, sans-serif;
+    font-size: 10pt;
+}
+
+/*******************************************************************************
+    Tables
+*******************************************************************************/
+
+section table {
+    width: 100%;
+    padding: 0px;
+}
+
+section table th {
+    text-align: left;
+}
+
+section table td {
+    vertical-align: text-top;
+    text-align: left;
+    padding: 0.5em 0em;
+    border-top: 1px dashed $lightgray;
+}
+
+section table tr:first-child td {
+    border-top: 0px;
+}
+
+section table td.year {
+    width: 15%;
+    color: $lightgray;
+}
+
+section table td.desc {
+    width: 65%;
+}
+
+section table td.inst {
+    width: 20%;
+    color: $lightgray;
+}
