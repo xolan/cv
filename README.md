@@ -1,18 +1,18 @@
-# About
+# xolan/cv
 
 HTML cv template.
 
-# Dependencies
+## Dependencies
 
 The scripts cv2pdf.bat and cv2pdf.sh both requires [wkhtmltopdf](http://code.google.com/p/wkhtmltopdf/). Adjust the "tool", "in" and "out" variables as you see fit. The batch file should work on Windows, and the Bash file should work on both Linux and Mac OS systems, and possibly others.
 
-# Credits
+## Credits
 
 Adrien Friggeri: https://github.com/afriggeri/cv
 
 For design inspiration.
 
-# License #
+## License
 
 Copyright (C) 2012, Jonas Svarvaa
 
