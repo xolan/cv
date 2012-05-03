@@ -16,37 +16,37 @@ $(document).ready(function() {
         });
     }
 
-    $("#aInt").mouseover(function() {
+    $("#aInt").mouseenter(function() {
         clearClasses("#title .lastName");
         replaceSubTitle("interests");
         $("#title .lastName").addClass("blue");
     });
     
-    $("#aEdu").mouseover(function() {
+    $("#aEdu").mouseenter(function() {
         clearClasses("#title .lastName");
         replaceSubTitle("education");
         $("#title .lastName").addClass("red");
     });
     
-    $("#aExp").mouseover(function() {
+    $("#aExp").mouseenter(function() {
         clearClasses("#title .lastName");
         replaceSubTitle("experience");
         $("#title .lastName").addClass("orange");
     });
     
-    $("#aExt").mouseover(function() {
+    $("#aExt").mouseenter(function() {
         clearClasses("#title .lastName");
         replaceSubTitle("extra curricular");
         $("#title .lastName").addClass("green");
     });
 
-    $("#aOn").mouseover(function() {
+    $("#aOn").mouseenter(function() {
         clearClasses("#title .lastName");
         replaceSubTitle("online");
         $("#title .lastName").addClass("purple");
     });
     
-    $("section").mouseout(function() {
+    $("section").mouseleave(function() {
         clearClasses("#title .lastName");
         replaceSubTitle(titleSubtitleOriginalText);
         $("#title .lastName").addClass("white");
