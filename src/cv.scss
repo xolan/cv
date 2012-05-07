@@ -34,7 +34,7 @@ $fontsuffix:    'Black',
     }
 }
 
-$_f     : $fontprefix+'Regular';
+$_fnorm : $fontprefix+'Regular';
 $_fbold : $fontprefix+'Bold';
 $_fital : $fontprefix+'Italic';
 $_fthin : $fontprefix+'Thin';
@@ -136,7 +136,7 @@ footer {
 #title .subtitle    { color: $lightgray;   font-size:   14pt;                     }
 
 section, aside {
-    font-family: $_f, sans-serif;
+    font-family: $_fnorm, sans-serif;
 }
 
 aside {
@@ -148,6 +148,10 @@ section article h1, aside dt, section article h1 span {
     font-family:    $_fbold;
 }
 
+section dl dt:not(:first-of-type), aside dl dt:not(:first-of-type) {
+    margin-top: 1em;
+}
+
 section article h1 {
     margin:     1em 0em;
 }
@@ -156,7 +160,7 @@ section article:first-child h1 {
     margin-top:     0em;
 }
 
-p, td, aside dd {
+p, td, aside dd, section dd {
     font-size: 10pt;
 }
 

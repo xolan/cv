@@ -228,13 +228,16 @@ section article h1, aside dt, section article h1 span {
   font-size: 16pt;
   font-family: "RobotoBold"; }
 
+section dl dt:not(:first-of-type), aside dl dt:not(:first-of-type) {
+  margin-top: 1em; }
+
 section article h1 {
   margin: 1em 0em; }
 
 section article:first-child h1 {
   margin-top: 0em; }
 
-p, td, aside dd {
+p, td, aside dd, section dd {
   font-size: 10pt; }
 
 footer {
