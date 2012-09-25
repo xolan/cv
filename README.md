@@ -1,6 +1,7 @@
 # xolan/cv
 
 HTML cv template.
+
 Rename data-example.js to data.js, and fill inn wanted data.
 
 ## Dependencies
