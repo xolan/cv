@@ -6,7 +6,7 @@ HTML cv template.
 
 To use SCSS you need [Ruby](http://rubyinstaller.org/) and [SASS](http://sass-lang.com/). You can however ignore the SCSS-file if you prefer to work with plain CSS.
 
-The scripts cv2pdf.bat and cv2pdf.sh both requires [wkhtmltopdf](http://code.google.com/p/wkhtmltopdf/). Adjust the "tool", "in" and "out" variables as you see fit. The batch file should work on Windows, and the Bash file should work on both Linux and Mac OS systems, and possibly others.
+I've provided a java program for converting to pdf. See WebToPdf for details.
 
 ## Credits
 

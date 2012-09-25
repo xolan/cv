@@ -1,77 +1,79 @@
 <!DOCTYPE html>
 
-<head>
-    <meta charset="UTF-8" />
-    <title>curriculum vitae</title>
-    <link rel="stylesheet" href="https://raw.github.com/murtaugh/HTML5-Reset/master/_/css/style.css">
-    <link rel="stylesheet" type="text/css" href="cv.css">
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="data.js"></script>
-    <script src="cv.js"></script>
-</head>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>curriculum vitae</title>
+        <link rel="stylesheet" href="https://raw.github.com/murtaugh/HTML5-Reset/master/_/css/style.css"></link>
+        <link rel="stylesheet" type="text/css" href="cv.css"></link>
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script src="data.js"></script>
+        <script src="cv.js"></script>
+    </head>
+    
+    <body>
 
-<body>
+        <header>
+            <div id="title">
+                <span class="firstName"></span><span class="lastName white"></span>
+                <div class="subtitle">curriculum vitae</div>
+            </div>
+        </header>
 
-    <header>
-        <div id="title">
-            <span class="firstName"></span><span class="lastName white"></span>
-            <div class="subtitle">curriculum vitae</div>
-        </div>
-    </header>
+        <div class="content">
 
-    <div class="content">
-
-        <aside>
-            <dl>
-                <dt id="about">about</dt>
-                <!-- Data filled dynamically -->
-                <dt id="languages">languages</dt>
-                <!-- Data filled dynamically -->
-                <dt id="programming">programming</dt>
-                <!-- Data filled dynamically -->
-                <dt id="other">other</dt>
-                <!-- Data filled dynamically -->
-            </dl>
-            
-
-            <img id="qr" src="http://qrcode.kaywa.com/img.php?s=6&d=" alt="qrcode"/>
-
-        </aside>
-
-        <section>
-            <article id="aInt" class="art">
-                <h1><span class="blue">int</span>erests</h1>
-                <p><!-- Data filled dynamically --></p>
-            </article>
-            <article id="aEdu" class="art">
-                <h1><span class="red">edu</span>cation</h1>
-                <table>
-                    <!-- Data filled dynamically -->
-                </table>
-            </article>
-            <article id="aExp" class="art">
-                <h1><span class="orange">exp</span>erience</h1>
-                <table>
-                    <!-- Data filled dynamically -->
-                </table>
-            </article>
-            <article id="aExt" class="art">
-                <h1><span class="green">ext</span>ra curricular</h1>
-                <table>
-                    <!-- Data filled dynamically -->
-                </table>
-            </article>
-            <article id="aOn" class="art">
-                <h1><span class="purple">on</span>line</h1>
+            <aside>
                 <dl>
+                    <dt id="about">about</dt>
+                    <!-- Data filled dynamically -->
+                    <dt id="languages">languages</dt>
+                    <!-- Data filled dynamically -->
+                    <dt id="programming">programming</dt>
+                    <!-- Data filled dynamically -->
+                    <dt id="other">other</dt>
                     <!-- Data filled dynamically -->
                 </dl>
-            </article>
-        </section>
+                
 
-    </div>
+                <img id="qr" src="" alt="qrcode"/>
 
-    <footer>
-    </footer>
-    
-</body>
+            </aside>
+
+            <section>
+                <article id="aInt" class="art">
+                    <h1><span class="blue">int</span>erests</h1>
+                    <p><!-- Data filled dynamically --></p>
+                </article>
+                <article id="aEdu" class="art">
+                    <h1><span class="red">edu</span>cation</h1>
+                    <table>
+                        <!-- Data filled dynamically -->
+                    </table>
+                </article>
+                <article id="aExp" class="art">
+                    <h1><span class="orange">exp</span>erience</h1>
+                    <table>
+                        <!-- Data filled dynamically -->
+                    </table>
+                </article>
+                <article id="aExt" class="art">
+                    <h1><span class="green">ext</span>ra curricular</h1>
+                    <table>
+                        <!-- Data filled dynamically -->
+                    </table>
+                </article>
+                <article id="aOn" class="art">
+                    <h1><span class="purple">on</span>line</h1>
+                    <dl>
+                        <!-- Data filled dynamically -->
+                    </dl>
+                </article>
+            </section>
+
+        </div>
+
+        <footer>
+        </footer>
+        
+    </body>
+</html>

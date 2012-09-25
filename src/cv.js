@@ -97,7 +97,7 @@ $(document).ready(function() {
         $("#other").after(s_other)
 
         // QR-CODE
-        $("#qr").attr("src", $("#qr").attr("src") + encodeURIComponent(data.cvURL));
+        $("#qr").attr("src", "http://qrcode.kaywa.com/img.php?s=6&d=" + encodeURIComponent(data.cvURL) + ";");
 
         // META
         document.title = data.firstName + " " + data.lastName + "'s curriculum vitae";
