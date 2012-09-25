@@ -2,6 +2,8 @@
 
 HTML cv template.
 
+Rename data-example.js to data.js, and fill inn wanted data.
+
 ## Dependencies
 
 To use SCSS you need [Ruby](http://rubyinstaller.org/) and [SASS](http://sass-lang.com/). You can however ignore the SCSS-file if you prefer to work with plain CSS.
