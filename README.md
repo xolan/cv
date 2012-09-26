@@ -14,7 +14,8 @@ To use SCSS you need [Ruby](http://rubyinstaller.org/) and [SASS](http://sass-la
 
 #### Ubuntu
 
-For converting the cv to a pdf I recommend using wkhtmltopdf.
+For converting the cv to a pdf I recommend using wkhtmltopdf as it handles both the HTML, CSS and Javascript. While the output doesn't look exactly like the browser version, it doesn't look terrible. Some CSS rules seem to be left out.
+
 On Ubuntu you should use the patched Qt version instead of the one supplied through apt-get.
 
 Root
