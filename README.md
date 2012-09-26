@@ -49,6 +49,15 @@ Install the needed dependencies for wkhtmltopdf
     apt-get build-dep libqt4-gui libqt4-network libqt4-wekbit
     apt-get install openssl build-essenttial git-code git-doc libssl-dev
 
+#### ArchLinux
+
+Install dependencies
+
+    sudo pacman -S base-devel qt
+    sudo pacman -S openssl git
+
+#### WKHTMLTOPDF
+
 Set up a sensible working area under CV's directory
 
     mkdir wkhtmltopdf
