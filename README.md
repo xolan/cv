@@ -10,6 +10,23 @@ Rename data-example.js to data.js, and fill inn wanted data.
 
 To use SCSS you need [Ruby](http://rubyinstaller.org/) and [SASS](http://sass-lang.com/). You can however ignore the SCSS-file if you prefer to work with plain CSS.
 
+#### Ubuntu
+
+Install Ruby and Gem
+
+    sudo apt-get install ruby-full rubygems
+
+Install SASS
+
+    sudo gem install sass
+
+Run SASS
+
+    cd src
+    sass --scss --watch cv.scss:cv.css
+
+While SASS is running, this will "compile" the SCSS to regular CSS whenever you save changes to cv.scss. You can stop watching by entering `^C (CTRL+C)`.
+
 ### PDF
 
 #### Ubuntu
@@ -55,9 +72,10 @@ Install wkhtmltopdf
     make install
     cd ..
 
-Enter CV's directory
+Enter CV's directory and exit root
 
     cd ..
+    exit
 
 The wkhtmltopdf binary should now be installed in `/bin/wkhtmltopdf` and can be used like this:
 
