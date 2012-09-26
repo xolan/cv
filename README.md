@@ -31,6 +31,8 @@ While SASS is running, this will "compile" the SCSS to regular CSS whenever you 
 
 For converting the cv to a pdf I recommend using wkhtmltopdf as it handles both the HTML, CSS and Javascript. While the output doesn't look exactly like the browser version, it doesn't look terrible. Some CSS rules seem to be left out.
 
+If the binary distribution of wkhtmltopdf does not work correctly for you, you can try compiling it yourself. Below are instructions for Ubuntu and ArchLinux.
+
 #### Ubuntu
 
 On Ubuntu you should use the patched Qt version instead of the one supplied through apt-get.
