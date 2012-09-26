@@ -7,6 +7,7 @@ var data = {
     city: "City",
     country: "Country",
     email: "email@example.com",
+    phone: "1-555-HERPADERPA",
     languages: [
         "norwegian",
         "english",

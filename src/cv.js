@@ -72,6 +72,7 @@ $(document).ready(function() {
             <dd>" + data.country + "</dd> \
             <br /> \
             <dd>" + data.email + "</dd> \
+            <dd>" + data.phone + "</dd> \
         ";
         $("#about").after(s_about)
 
@@ -100,14 +101,14 @@ $(document).ready(function() {
         $("#qr").attr("src", "http://qrcode.kaywa.com/img.php?s=6&d=" + encodeURIComponent(data.cvURL) + ";");
 
         // META
-        document.title = data.firstName + " " + data.lastName + "'s curriculum vitae";
+        document.title = data.firstName + " " + data.lastName + "'s curriculum vitæ";
         document.head.insertAdjacentHTML(
             'beforeEnd',
-            '<meta name="description" content="' + data.firstName + " " + data.lastName + "\'s curriculum vitae" + '" />'
+            '<meta name="description" content="' + data.firstName + " " + data.lastName + "\'s curriculum vitæ" + '" />'
             );
         document.head.insertAdjacentHTML(
             'beforeEnd',
-            '<meta name="keywords" content="' + data.firstName + ', ' + data.lastName + ', ' + data.firstName + ' ' + data.lastName + ', CV, cv, curriculum vitae" />'
+            '<meta name="keywords" content="' + data.firstName + ', ' + data.lastName + ', ' + data.firstName + ' ' + data.lastName + ', CV, cv, curriculum vitæ" />'
             );
         document.head.insertAdjacentHTML(
             'beforeEnd',
