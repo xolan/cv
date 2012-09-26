@@ -6,9 +6,57 @@ Rename data-example.js to data.js, and fill inn wanted data.
 
 ## Dependencies
 
+### SCSS
+
 To use SCSS you need [Ruby](http://rubyinstaller.org/) and [SASS](http://sass-lang.com/). You can however ignore the SCSS-file if you prefer to work with plain CSS.
 
-I've provided a java program for converting to pdf. See WebToPdf for details.
+### PDF
+
+#### Ubuntu
+
+For converting the cv to a pdf I recommend using wkhtmltopdf.
+On Ubuntu you should use the patched Qt version instead of the one supplied through apt-get.
+
+Root
+
+    sudo -i
+
+Update
+
+    apt-get update
+    apt-get upgrade
+
+Install the needed dependencies for wkhtmltopdf
+
+    apt-get build-dep libqt4-gui libqt4-network libqt4-wekbit
+    apt-get install openssl build-essenttial git-code git-doc libssl-dev
+
+Set up a sensible working area under CV's directory
+
+    mkdir wkhtmltopdf
+
+Install the custom Qt version for wkhtmltopdf
+
+    git clone git://gitorious.org/+wkhtml2pdf/qt/wkhtmltopdf-qt.git wkhtmltopdf-qt
+    cd wkhtmltopdf-qt
+    ./configure -nomake tools,examples,demos,docs,translations -opensource -prefix ../wkqt
+    make -j3
+    make install
+    cd ..
+
+Install wkhtmltopdf
+
+    git clone git://github.com/antialize/wkhtmltopdf.git wkhtmltopdf
+    cd wkhtmltopdf
+    ../wkqt/bin/qmake
+    make -j3
+    make install
+
+The wkhtmltopdf binary should now be installed in `/bin/wkhtmltopdf` and can be used like this:
+
+    /bin/wkhtmltopdf src/cv.html bin/cv.pdf
+
+_Guide based on: http://blog.tcs.de/install-wkhtmltopdf-on-ubuntu-server/ and confirmed to work under Ubuntu x86_64 12.04._
 
 ## Credits
 
