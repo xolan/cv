@@ -12,18 +12,18 @@ To use SCSS you need [Ruby](http://rubyinstaller.org/) and [SASS](http://sass-la
 
 #### Ubuntu
 
-Install Ruby and Gem
+1. Install Ruby and Gem
 
-    sudo apt-get install ruby-full rubygems
+        sudo apt-get install ruby-full rubygems
 
-Install SASS
+2. Install SASS
 
-    sudo gem install sass
+        sudo gem install sass
 
-Run SASS
+3. Run SASS
 
-    cd src
-    sass --scss --watch cv.scss:cv.css
+        cd src
+        sass --scss --watch cv.scss:cv.css
 
 While SASS is running, this will "compile" the SCSS to regular CSS whenever you save changes to cv.scss. You can stop watching by entering `^C (CTRL+C)`.
 
@@ -35,62 +35,59 @@ If the binary distribution of wkhtmltopdf does not work correctly for you, you c
 
 #### Ubuntu
 
-On Ubuntu you should use the patched Qt version instead of the one supplied through apt-get.
+1. Become root
 
-Root
+        sudo -i
 
-    sudo -i
+2. Update
 
-Update
+        apt-get update
+        apt-get upgrade
 
-    apt-get update
-    apt-get upgrade
+3. Install the needed dependencies for wkhtmltopdf
 
-Install the needed dependencies for wkhtmltopdf
-
-    apt-get build-dep libqt4-gui libqt4-network libqt4-webkit
-    apt-get install openssl build-essenttial git-code git-doc libssl-dev
+        apt-get build-dep libqt4-gui libqt4-network libqt4-webkit
 
 #### ArchLinux
 
-Install dependencies
+1. Install dependencies
 
-    sudo pacman -S base-devel qt
-    sudo pacman -S openssl git
+        sudo pacman -S base-devel qt
+        sudo pacman -S openssl git
 
 #### WKHTMLTOPDF
 
-Set up a sensible working area under CV's directory
+1. Set up a sensible working area under CV's directory
 
-    mkdir wkhtmltopdf
-    cd wkhtmltopdf
+        mkdir wkhtmltopdf
+        cd wkhtmltopdf
 
-Install the custom Qt version for wkhtmltopdf
+2. Install the custom Qt version for wkhtmltopdf
 
-    git clone git://gitorious.org/+wkhtml2pdf/qt/wkhtmltopdf-qt.git wkhtmltopdf-qt
-    cd wkhtmltopdf-qt
-    ./configure -nomake tools,examples,demos,docs,translations -opensource -prefix ../wkqt
-    make -j3
-    make install
-    cd ..
+        git clone git://gitorious.org/+wkhtml2pdf/qt/wkhtmltopdf-qt.git wkhtmltopdf-qt
+        cd wkhtmltopdf-qt
+        ./configure -nomake tools,examples,demos,docs,translations -opensource -prefix ../wkqt
+        make -j3
+        make install
+        cd ..
 
-Install wkhtmltopdf
+3. Install wkhtmltopdf
 
-    git clone git://github.com/antialize/wkhtmltopdf.git wkhtmltopdf
-    cd wkhtmltopdf
-    ../wkqt/bin/qmake
-    make -j3
-    make install
-    cd ..
+        git clone git://github.com/antialize/wkhtmltopdf.git wkhtmltopdf
+        cd wkhtmltopdf
+        ../wkqt/bin/qmake
+        make -j3
+        make install
+        cd ..
 
-Enter CV's directory and exit root
+4. Enter CV's directory and exit root
 
-    cd ..
-    exit
+        cd ..
+        exit
 
-The wkhtmltopdf binary should now be installed in `/bin/wkhtmltopdf` and can be used like this:
+5. The wkhtmltopdf binary should now be installed in `/bin/wkhtmltopdf` and can be used like this:
 
-    /bin/wkhtmltopdf src/cv.html bin/cv.pdf
+        /bin/wkhtmltopdf src/cv.html bin/cv.pdf
 
 _Guide based on: http://blog.tcs.de/install-wkhtmltopdf-on-ubuntu-server/ and confirmed to work under Ubuntu x86_64 12.04._
 
