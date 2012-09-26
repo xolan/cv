@@ -34,6 +34,7 @@ Install the needed dependencies for wkhtmltopdf
 Set up a sensible working area under CV's directory
 
     mkdir wkhtmltopdf
+    cd wkhtmltopdf
 
 Install the custom Qt version for wkhtmltopdf
 
@@ -51,6 +52,11 @@ Install wkhtmltopdf
     ../wkqt/bin/qmake
     make -j3
     make install
+    cd ..
+
+Enter CV's directory
+
+    cd ..
 
 The wkhtmltopdf binary should now be installed in `/bin/wkhtmltopdf` and can be used like this:
 
@@ -60,9 +66,7 @@ _Guide based on: http://blog.tcs.de/install-wkhtmltopdf-on-ubuntu-server/ and co
 
 ## Credits
 
-Adrien Friggeri: https://github.com/afriggeri/cv
-
-For design inspiration.
+Adrien Friggeri: https://github.com/afriggeri/cv _For design inspiration._
 
 ## License
 
