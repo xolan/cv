@@ -1,3 +1,4 @@
 bin/*
 src/data.js
 wkhtmltopdf
+*.scssc
