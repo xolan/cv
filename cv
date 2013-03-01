@@ -1,0 +1,57 @@
+#!/bin/bash
+USER='svarvaa'
+HOST='login.stud.ntnu.no'
+HOSTPATH='public_html/cv/'
+
+SRC='src/cv.html'
+BIN='bin/cv.pdf'
+DATA_EXAMPLE='src/data-example.js'
+DATA='src/data.js'
+
+if [[ "$*" == '-h' ]]; then
+  echo "--------------------------------------------------------------------------------"
+  echo "Usage: ./cv [-h] [push [+fonts, +pdf]]"
+  echo "--------------------------------------------------------------------------------"
+  echo "Arguments:"
+  echo "--------------------------------------------------------------------------------"
+  echo "  [none]: Converts \$SRC to \$BIN using wkhtmltopdf. This is always implied when"
+  echo "          using other arguments."
+  echo "      -h: Displays this help message."
+  echo "    push: Pushes files to \$HOSTPATH at \$HOST."
+  echo "      +fonts: Pushes fonts to \$HOSTPATH/../fonts at \$HOST."
+  echo "        +pdf: Pushes pdf to \$HOSTPATH/cv.pdf at \$HOST."
+  echo "--------------------------------------------------------------------------------"
+  echo "Adjust \$USER, \$HOST, \$HOSTPATH, \$SRC, \$BIN, \$DATA_EXAMPLE and \$DATA in this script"
+  echo "to fit your needs."
+  echo "--------------------------------------------------------------------------------"
+
+elif [ -f $DATA ]; then
+  echo "[ INFO ] File $DATA exists."
+  command -v wkhtmltopdf >/dev/null 2>&1 || { echo >&2 "[ ERROR ] I require wkhtmltopdf but it's not installed. Aborting."; exit 1; }
+  ##wkhtmltopdf $SRC $BIN
+  echo "[ INFO ] PDF binary located at $BIN"
+
+  if [ "$1" == "push" ]; then
+      command -v rsync >/dev/null 2>&1 || { echo >&2 "[ ERROR ] I require rsync but it's not installed. Aborting."; exit 1; }
+      echo "[ INFO ] Attempting to push src files to host."
+      rsync --human-readable --progress src/* $USER@$HOST:$HOSTPATH
+
+      if [[ "$2" == "+fonts" ]] || [[ "$3" == "+fonts" ]] ; then
+          echo "[ INFO ] Attempting to push font files to host."
+          rsync --human-readable --progress fonts/* $USER@$HOST:$HOSTPATH/../fonts/
+      fi
+
+      if [[ "$2" == "+pdf" ]] || [[ "$3" == "+pdf" ]] ; then
+          echo "[ INFO ] Attempting to push bin(pdf) file(s) to host."
+          rsync --human-readable --progress $BIN $USER@$HOST:$HOSTPATH/cv.pdf
+      fi
+
+  fi
+
+else
+   echo "[ ERROR ] File $DATA does not exist."
+   echo "[ INFO ] Please make a copy of $DATA_EXAMPLE to $DATA and fill in your data."
+
+fi
+
+exit 0
