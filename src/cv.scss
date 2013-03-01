@@ -207,3 +207,14 @@ section table td.inst {
     width: 20%;
     color: $lightgray;
 }
+
+/*******************************************************************************
+    WKHTMLTOPDF
+*******************************************************************************/
+@mixin page-break {
+    page-break-before: always;
+}
+
+#aOn {
+    @include page-break;
+}
