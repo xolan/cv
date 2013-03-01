@@ -1,4 +1,7 @@
 #!/bin/bash
+################################################################################
+# Variables                                                                    #
+################################################################################
 USER='svarvaa'
 HOST='login.stud.ntnu.no'
 HOSTPATH='public_html/cv/'
@@ -8,49 +11,124 @@ BIN='bin/cv.pdf'
 DATA_EXAMPLE='src/data-example.js'
 DATA='src/data.js'
 
-if [[ "$*" == '-h' ]]; then
+################################################################################
+# Functions                                                                    #
+################################################################################
+function convert {
+  if [ -f $DATA ];
+  then
+    command -v wkhtmltopdf >/dev/null 2>&1 || { echo >&2 "[CV][ERROR] I require wkhtmltopdf but it's not installed. Aborting."; exit 1; }
+    wkhtmltopdf $SRC $BIN
+    echo "[CV][INFO] PDF binary located at $BIN"
+  else
+    echo "[CV][ERROR] File $DATA does not exist."
+    echo "[CV][INFO] Please make a copy of $DATA_EXAMPLE to $DATA and fill in your data."
+    if [ ! $* == "-i" ];
+    then
+      exit 1
+    fi
+  fi
+}
+
+function push {
+  command -v rsync >/dev/null 2>&1 || { echo >&2 "[CV][ERROR] I require rsync but it's not installed. Aborting."; exit 1; }
+  echo "[CV][INFO] Attempting to push src files to host."
+  rsync --human-readable --progress src/* $USER@$HOST:$HOSTPATH
+}
+
+function push_fonts {
+  command -v rsync >/dev/null 2>&1 || { echo >&2 "[CV][ERROR] I require rsync but it's not installed. Aborting."; exit 1; }
+  echo "[CV][INFO] Attempting to push font files to host."
+  rsync --human-readable --progress fonts/* $USER@$HOST:$HOSTPATH/../fonts/
+}
+
+function push_pdf {
+  command -v rsync >/dev/null 2>&1 || { echo >&2 "[CV][ERROR] I require rsync but it's not installed. Aborting."; exit 1; }
+  echo "[CV][INFO] Attempting to push bin(pdf) file(s) to host."
+  rsync --human-readable --progress $BIN $USER@$HOST:$HOSTPATH/cv.pdf
+}
+
+function help {
   echo "--------------------------------------------------------------------------------"
-  echo "Usage: ./cv [-h] [push [+fonts, +pdf]]"
+  echo "Usage: ./cv [-h || -i] [push [+fonts, +pdf]]"
   echo "--------------------------------------------------------------------------------"
   echo "Arguments:"
   echo "--------------------------------------------------------------------------------"
-  echo "  [none]: Converts \$SRC to \$BIN using wkhtmltopdf. This is always implied when"
-  echo "          using other arguments."
+  echo "  [none]: Converts \$SRC to \$BIN using wkhtmltopdf."
+  echo "          This is always implied when using other arguments, except for -i."
   echo "      -h: Displays this help message."
+  echo "      -i: Interactive mode."
   echo "    push: Pushes files to \$HOSTPATH at \$HOST."
-  echo "      +fonts: Pushes fonts to \$HOSTPATH/../fonts at \$HOST."
-  echo "        +pdf: Pushes pdf to \$HOSTPATH/cv.pdf at \$HOST."
+  echo "    push +fonts: Pushes fonts to \$HOSTPATH/../fonts at \$HOST."
+  echo "                 Can be combined with \"push +pdf\"."
+  echo "    push   +pdf: Pushes pdf to \$HOSTPATH/cv.pdf at \$HOST."
+  echo "                 Can be combined with \"push +fonts\"."
   echo "--------------------------------------------------------------------------------"
-  echo "Adjust \$USER, \$HOST, \$HOSTPATH, \$SRC, \$BIN, \$DATA_EXAMPLE and \$DATA in this script"
-  echo "to fit your needs."
+  echo "Adjust \$USER, \$HOST, \$HOSTPATH, \$SRC, \$BIN, \$DATA_EXAMPLE and \$DATA in this"
+  echo "script to fit your needs."
   echo "--------------------------------------------------------------------------------"
+}
 
-elif [ -f $DATA ]; then
-  echo "[ INFO ] File $DATA exists."
-  command -v wkhtmltopdf >/dev/null 2>&1 || { echo >&2 "[ ERROR ] I require wkhtmltopdf but it's not installed. Aborting."; exit 1; }
-  ##wkhtmltopdf $SRC $BIN
-  echo "[ INFO ] PDF binary located at $BIN"
+function interactive {
+  while [[ ! "${action-}" =~ ^[Qq]$ ]]
+  do
+    echo "--------------------------------------------------------------------------------"
+    echo "[CV] What do you want to do?"
+    read -n 1 -p $'[c]onvert, [p]ush src, push [f]onts, push p[d]f, [q]uit: >> ' action
+    echo ""
 
-  if [ "$1" == "push" ]; then
-      command -v rsync >/dev/null 2>&1 || { echo >&2 "[ ERROR ] I require rsync but it's not installed. Aborting."; exit 1; }
-      echo "[ INFO ] Attempting to push src files to host."
-      rsync --human-readable --progress src/* $USER@$HOST:$HOSTPATH
+    if [[ "${action-}" =~ ^[Cc]$ ]]
+    then
+      convert
+    fi
 
-      if [[ "$2" == "+fonts" ]] || [[ "$3" == "+fonts" ]] ; then
-          echo "[ INFO ] Attempting to push font files to host."
-          rsync --human-readable --progress fonts/* $USER@$HOST:$HOSTPATH/../fonts/
-      fi
+    if [[ "${action-}" =~ ^[Pp]$ ]]
+    then
+      push
+    fi
 
-      if [[ "$2" == "+pdf" ]] || [[ "$3" == "+pdf" ]] ; then
-          echo "[ INFO ] Attempting to push bin(pdf) file(s) to host."
-          rsync --human-readable --progress $BIN $USER@$HOST:$HOSTPATH/cv.pdf
-      fi
+    if [[ "${action-}" =~ ^[Ff]$ ]]
+    then
+      push_fonts
+    fi
 
-  fi
+    if [[ "${action-}" =~ ^[Dd]$ ]]
+    then
+      push_pdf
+    fi
+  done
+  echo "Quitting..."
+}
+
+################################################################################
+# Non-interactive logic                                                        #
+################################################################################
+if [[ "$*" == '-h' ]];
+then
+  help
+
+elif [[ "$*" == '-i' ]];
+then
+  interactive
 
 else
-   echo "[ ERROR ] File $DATA does not exist."
-   echo "[ INFO ] Please make a copy of $DATA_EXAMPLE to $DATA and fill in your data."
+  convert
+
+  if [ "$1" == "push" ];
+  then
+    push 
+
+    if [[ "$2" == "+fonts" ]] || [[ "$3" == "+fonts" ]] ;
+    then
+      push_fonts
+    fi
+
+    if [[ "$2" == "+pdf" ]] || [[ "$3" == "+pdf" ]] ;
+    then
+      push_pdf
+    fi
+
+  fi
 
 fi
 
