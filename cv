@@ -73,7 +73,7 @@ function interactive {
   while [[ ! "${action-}" =~ ^[Qq]$ ]]
   do
     echo "--------------------------------------------------------------------------------"
-    echo "[CV] What do you want to do?"
+    echo "[CV][PROMPT] What do you want to do?"
     read -n 1 -p $'[c]onvert, [p]ush src, push [f]onts, push p[d]f, [q]uit: >> ' action
     echo ""
 
@@ -97,7 +97,7 @@ function interactive {
       push_pdf
     fi
   done
-  echo "Quitting..."
+  echo "[CV][INFO] Quitting..."
 }
 
 ################################################################################
