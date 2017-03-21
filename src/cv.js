@@ -98,7 +98,11 @@ $(document).ready(function() {
         $("#other").after(s_other)
 
         // QR-CODE
-        $("#qr").attr("src", "http://qrcode.kaywa.com/img.php?s=6&d=" + encodeURIComponent(data.cvURL));
+        if (data.use.qr) {
+            $("#qr").attr("src", "http://qrcode.kaywa.com/img.php?s=6&d=" + encodeURIComponent(data.cvURL));
+        } else {
+            $("#qr").remove();
+        }
 
         // META
         document.title = data.firstName + " " + data.lastName + "'s curriculum vitæ";
