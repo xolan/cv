@@ -128,21 +128,39 @@ footer {
     font-size:      40pt;
     text-align:     center;
     line-height:    1em;
-}
 
-#title {
-    .firstName { margin-right: -0.1em; }
-    .lastName  { margin-left:  -0.1em; }
     @media print {
-        .firstName { margin-right: -0.05em;
-                     text-transform: capitalize; }
-        .lastName  { margin-left:  -0.05em;
-                     text-transform: capitalize; }
+        font-family: "Roboto";
+        font-weight: bolder;
     }
 }
 
-#title .firstName   { color: $white;   font-size:  40pt; font-family: $_fthin, sans-serif;}
-#title .lastName    {                   font-size:  40pt;                      }
+#title {
+    .firstName { 
+        margin-right: -0.1em;
+        color: $white;
+        font-size: 40pt;
+        font-family: $_fthin, sans-serif;
+    }
+    .lastName {
+        margin-left: -0.1em;
+        font-size: 40pt;
+    }
+    @media print {
+        .firstName {
+            margin-right: -0.05em;
+            text-transform: capitalize;
+            font-family: "Roboto";
+            font-weight: lighter;
+        }
+        .lastName {
+            margin-left:  -0.05em;
+            text-transform: capitalize;
+        }
+    }
+}
+
+
 #title .lastName    { -webkit-transition: color 0.5s ease-in-out;
                       -moz-transition: color 0.5s ease-in-out;
                       -ms-transition: color 0.5s ease-in-out;
@@ -152,6 +170,9 @@ footer {
 
 section, aside {
     font-family: $_fnorm, sans-serif;
+    @media print {
+        font-family: "Roboto";
+    }
 }
 
 aside {
@@ -161,6 +182,11 @@ aside {
 section article h1, aside dt, section article h1 span {
     font-size:      16pt;
     font-family:    $_fbold;
+
+    @media print {
+        font-family: "Roboto";
+        font-weight: bolder;
+    }
 }
 
 section dl dt:not(:first-of-type), aside dl dt:not(:first-of-type) {
@@ -183,6 +209,11 @@ footer {
     text-align: right;
     font-family: $_fital, sans-serif;
     font-size: 10pt;
+
+    @media print {
+        font-family: "Roboto";
+        font-style: italic;
+    }
 }
 
 /*******************************************************************************

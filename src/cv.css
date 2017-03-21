@@ -184,26 +184,28 @@ footer {
   font-size: 40pt;
   text-align: center;
   line-height: 1em; }
+  @media print {
+    #title {
+      font-family: "Roboto";
+      font-weight: bolder; } }
 
 #title .firstName {
-  margin-right: -0.1em; }
-#title .lastName {
-  margin-left: -0.1em; }
-@media print {
-  #title .firstName {
-    margin-right: -0.05em;
-    text-transform: capitalize; }
-  #title .lastName {
-    margin-left: -0.05em;
-    text-transform: capitalize; } }
-
-#title .firstName {
+  margin-right: -0.1em;
   color: #FFFFFF;
   font-size: 40pt;
   font-family: "RobotoThin", sans-serif; }
-
 #title .lastName {
+  margin-left: -0.1em;
   font-size: 40pt; }
+@media print {
+  #title .firstName {
+    margin-right: -0.05em;
+    text-transform: capitalize;
+    font-family: "Roboto";
+    font-weight: lighter; }
+  #title .lastName {
+    margin-left: -0.05em;
+    text-transform: capitalize; } }
 
 #title .lastName {
   -webkit-transition: color 0.5s ease-in-out;
@@ -218,6 +220,9 @@ footer {
 
 section, aside {
   font-family: "RobotoRegular", sans-serif; }
+  @media print {
+    section, aside {
+      font-family: "Roboto"; } }
 
 aside {
   text-align: right; }
@@ -225,6 +230,10 @@ aside {
 section article h1, aside dt, section article h1 span {
   font-size: 16pt;
   font-family: "RobotoBold"; }
+  @media print {
+    section article h1, aside dt, section article h1 span {
+      font-family: "Roboto";
+      font-weight: bolder; } }
 
 section dl dt:not(:first-of-type), aside dl dt:not(:first-of-type) {
   margin-top: 1em; }
@@ -242,6 +251,10 @@ footer {
   text-align: right;
   font-family: "RobotoItalic", sans-serif;
   font-size: 10pt; }
+  @media print {
+    footer {
+      font-family: "Roboto";
+      font-style: italic; } }
 
 /*******************************************************************************
     Tables
