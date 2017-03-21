@@ -18,7 +18,7 @@ function convert {
   if [ -f $DATA ];
   then
     command -v wkhtmltopdf >/dev/null 2>&1 || { echo >&2 "[CV][ERROR] I require wkhtmltopdf but it's not installed. Aborting."; exit 1; }
-    wkhtmltopdf $SRC $BIN
+    wkhtmltopdf --print-media-type --debug-javascript $SRC $BIN
     echo "[CV][INFO] PDF binary located at $BIN"
   else
     echo "[CV][ERROR] File $DATA does not exist."
